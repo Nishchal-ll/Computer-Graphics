@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity fulladdersulav is
+    Port ( A : in  STD_LOGIC;
+           B : in  STD_LOGIC;
+           C : in  STD_LOGIC;
+           SUM : out  STD_LOGIC;
+           COUT : out  STD_LOGIC);
+end fulladdersulav;
+
+architecture Behavioral of fulladdersulav is
+
+begin
+    process (A, B, C)
+        variable sum_temp: STD_LOGIC;
+    begin
+        sum_temp := (A XOR B) XOR C;
+        SUM <= sum_temp;
+        COUT <= (A AND B) OR ((A OR B) AND C);
+    end process;
+end Behavioral;
